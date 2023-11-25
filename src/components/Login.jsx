@@ -27,16 +27,10 @@ function Login() {
     e.preventDefault();
     var foundItems = null;
     try {
-      const userData = await fetch("http://localhost:5000/userdata", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-      if (!userData.ok) {
-        throw new Error("Network response was not ok");
-      }
-      const userJsonData = await userData.json();
+      const userData = await axios.post("https://restaurant-backend-yubq.onrender.com/userdata");
+      //console.log(userData);
+      const userJsonData =  userData.data;
+      console.log(userJsonData);
       for (let i = 0; i < userJsonData.length; i++) {
         if (userJsonData[i].email === data.username[0]) {
           foundItems = userJsonData[i];
