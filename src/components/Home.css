@@ -41,6 +41,8 @@ body {
     background-color: black;
 }
 
+/* Navbar */
+
 nav {
     padding: 1% !important;
     color: white;
@@ -70,6 +72,14 @@ nav {
     color: white;
     border-bottom: 3px solid gray;
 }
+
+.dropdown-link {
+    color: black;
+    display: block;
+    padding: 5%;
+}
+
+/* Main content */ 
 
 @keyframes headingRiseup {
     0% {
@@ -186,7 +196,7 @@ nav {
     box-shadow: 3px 3px 10px white;
 }
 
-@media (max-width:750px) {
+@media (max-width:1110px) {
     .about-card {
         flex-wrap: wrap;
     }
@@ -257,7 +267,7 @@ a:hover {
 /* Contact US */
 
 /* Responsive styles */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1110px) {
     .contact-container {
         flex-direction: column;
         text-align: center;
@@ -269,6 +279,10 @@ a:hover {
         margin-left: 0;
         width: 100%;
     }
+}
+
+.name {
+    font-weight: bold;
 }
 
 .contact-container {
@@ -287,12 +301,21 @@ a:hover {
 
 .address {
     margin: 0%;
+    font-size: 20px;
 }
 
 .menu {
     margin-left: 10%;
     display: flex;
     flex-direction: column;
+}
+
+.menu-heading {
+    font-weight: bold;
+}
+
+.menu-link {
+    font-size: 25px;
 }
 
 .link-container {
@@ -309,7 +332,7 @@ a:hover {
 }
 
 .icon-container {
-    margin-left: 15%;
+    margin-left: 10%;
     font-size: 30px;
     display: flex;
     flex-direction: row;
@@ -332,10 +355,12 @@ a:hover {
 .contact-icons:hover {
     color: gray;
     animation: moveUp;
-    animation-duration: 1s;
-    animation-delay: 500ms;
+    animation-duration: 3s;
+    animation-delay: 100ms;
 }
 
+
+.resturant-details,
 .menu,
 .link-container,
 .icon-container {
@@ -343,7 +368,7 @@ a:hover {
 }
 
 /* Responsive styles */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1110px) {
     .contact-container {
         flex-direction: column;
         text-align: center;

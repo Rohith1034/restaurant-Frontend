@@ -1,3 +1,9 @@
+import { Link } from 'react-router-dom';
+import Cookies from 'js-cookie';
+import md5 from 'md5';
+
+const isLoggedIn = Cookies.get('isLoggedIn');
+
 function Navbar() {
     return <nav className="navbar navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid">
@@ -18,6 +24,23 @@ function Navbar() {
                     </li>
                     <li className="nav-item">
                         <a className="nav-link" href="#contact">Contact us</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="/" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            profile <i class="fa-solid fa-user"></i>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <Link className="dropdown-link" to="/profile">Profile</Link>
+                            {
+                                isLoggedIn ? (
+                                    <Link className="dropdown-link" to="/logout">Logout</Link>
+                                ) : (
+                                    <Link className="dropdown-link" to="/login">Login</Link>
+                                )
+                            }
+                            <Link className="dropdown-link" to="/register">Register</Link>
+                        </div>
                     </li>
                 </ul>
             </div>

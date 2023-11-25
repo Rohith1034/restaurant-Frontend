@@ -1,17 +1,17 @@
 function Contact() {
     return <div className="contact-container" id="contact">
         <div className="resturant-details">
-            <h3 className="name">sample</h3>
+            <h3 className="name">Sithara</h3>
             <p className="address">11-481 near manju lodge,</p>
             <span className="address">opp SBI bank dharmavram</span>
         </div>
 
         <div className="menu">
             <h3 className="menu-heading">Navigation</h3>
-            <a href="/">Home</a>
-            <a href="/">Menu</a>
-            <a href="/">Contact us</a>
-            <a href="#about">About us</a>
+            <a className="menu-link" href="/">Home</a>
+            <a className="menu-link" href="/">Menu</a>
+            <a className="menu-link" href="/">Contact us</a>
+            <a className="menu-link" href="#about">About us</a>
         </div>
 
         <div className="link-container">

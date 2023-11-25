@@ -1,0 +1,154 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 3px 2px 20px white;
+    border-radius: 25px;
+    margin: 5%;
+    font-family: 'McLaren', cursive;
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
+    padding: 3%;
+    color: white;
+}
+
+.image-container {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2%;
+}
+
+.img {
+    max-width: 800px;
+    max-height: 650px;
+    border-radius: 7px;
+}
+
+.form-container {
+    flex: 1;
+    margin: 2%;
+    margin-top: 4%;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-heading {
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.form-item {
+    margin: 2%;
+}
+
+.input-box {
+    padding: 1%;
+    width: 100%;
+    border: 0px solid black;
+    border-bottom: 1px solid white;
+    background-color: black;
+    height: 35px;
+    margin-top: 10px;
+    font-size: 18px;
+    color: white;
+}
+
+.input-box:focus {
+    outline: none;
+}
+
+.checkbox-item {
+    margin: 3%;
+    text-align: center;
+}
+
+.links-container {
+    margin: 5%;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.link {
+    margin-left: 5%;
+}
+
+.term-link {
+    text-decoration: underline;
+}
+
+.btn-container {
+    display: flex;
+    margin: 3%;
+}
+
+.submit-btn {
+    height: 45px;
+    background-color: white;
+    width: 350px;
+    color: black;
+    border: 0px;
+    border-radius: 7px;
+    font-size: 18px;
+}
+
+@keyframes moveUp {
+    0% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+.submit-btn:hover {
+    background-color: grey;
+    animation: moveUp;
+    animation-duration: 1000ms;
+    animation-delay: 100ms;
+}
+
+@media (max-width:1350px) {
+    .container {
+        display: block;
+    }
+
+    .image-container {
+        margin: 1%;
+    }
+
+    .img {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.img {
+    max-width: 700px;
+}
+
+@media (max-width:1350px) {
+
+    .container {
+        display: block;
+        margin: 2% auto;
+    }
+
+    .image-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+    }
+}

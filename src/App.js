@@ -1,25 +1,24 @@
-import Navbar from "./components/Navbar.jsx"
-import HeaderContent from "./components/HeaderContent.jsx";
-import CardDisplay from "./components/CardDisplay.jsx";
-import About from "./components/About.jsx";
-import Contact from "./components/Contact.jsx";
-import Mode from "./components/Mode.jsx";
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Home from './components/Home';
+import Login from "./components/Login"
+import Profile from './components/Profile';
+import Register from './components/Register';
+import Logout from './components/Logout';
 
 function App() {
   return (
-    <div className="App">
-      <section id="main">
-      <div id="background-container"></div>
-      <Navbar />
-      <div class="header">
-        <HeaderContent />
+    <Router>
+      <div className="App">
+        <Routes>
+        <Route path='/' element={<Home />} />
+          <Route path='/profile' element={<Profile />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/register' element={<Register />} />
+          <Route path='/logout' element={<Logout />} />
+        </Routes>
       </div>
-    </section>
-    <CardDisplay />
-    <About />
-    <Mode />
-    <Contact />
-    </div>
+    </Router>
   );
 }
 
