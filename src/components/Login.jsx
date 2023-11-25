@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import md5 from "md5";
-import Cookies from 'js-cookie';
+import Cookies from "js-cookie";
 
 var isLoggedIn = false;
 
