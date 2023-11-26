@@ -21,6 +21,10 @@ function Navbar() {
             return <button className="nav-link" onClick= {removeCookie()}>Logout</button>;
         }
     }
+
+    useEffect(() => {
+        isLoggedIn();
+    }, []);
     
 
     return <nav className="navbar navbar-expand-lg bg-body-tertiary">
