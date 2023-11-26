@@ -34,7 +34,7 @@ function Register() {
         try {
             if (data.password === data.confirmPassword) {
                 //https://restaurant-backend-yubq.onrender.com/data
-                const response = await axios.post("https://mern-backend-z9pr.onrender.com/data", data);
+                const response = await axios.post("https://restaurant-backend-yubq.onrender.com/data", data);
                 if (response.data.result === "Not Registered") {
                     setErrorMessage("Email alredy exist");
                 }
