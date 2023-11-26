@@ -1,10 +1,28 @@
 import { Link } from 'react-router-dom';
 import Cookies from 'js-cookie';
+import { useEffect } from "react";
 import md5 from 'md5';
-
-const isLoggedIn = Cookies.get('isLoggedIn');
+import { useNavigate } from "react-router-dom";
 
 function Navbar() {
+
+    const navigate = useNavigate();
+
+    const removeCookie = () => {
+        Cookies.remove("userid");
+        navigate("/");
+    }
+
+    const isLoggedIn = () => {
+        if (Cookies.get("userid") === undefined) {
+            return <a className='nav-link' href='/login'>Login</a>;
+        }
+        else {
+            return <button className="nav-link" onClick= {removeCookie()}>Logout</button>;
+        }
+    }
+    
+
     return <nav className="navbar navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid">
             <a className="navbar-brand" href="/">Restaurant</a>
@@ -25,22 +43,13 @@ function Navbar() {
                     <li className="nav-item">
                         <a className="nav-link" href="#contact">Contact us</a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="/" id="navbarDropdown" role="button"
-                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            profile <i class="fa-solid fa-user"></i>
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <Link className="dropdown-link" to="/profile">Profile</Link>
-                            {
-                                isLoggedIn ? (
-                                    <Link className="dropdown-link" to="/logout">Logout</Link>
-                                ) : (
-                                    <Link className="dropdown-link" to="/login">Login</Link>
-                                )
-                            }
-                            <Link className="dropdown-link" to="/register">Register</Link>
-                        </div>
+                </ul>
+                <ul className="navbar-nav ms-auto">
+                    <li className="nav-item">
+                        {isLoggedIn()}
+                    </li>
+                    <li className="nav-item">
+                        <a className="nav-link" href='/register'>Sign Up</a>
                     </li>
                 </ul>
             </div>

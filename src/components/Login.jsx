@@ -16,6 +16,10 @@ function Login() {
     password: ''
   });
 
+  const navigateToDashboard = () => {
+    navigate("/dashboard");
+  }
+
   const { username, password } = data;
   const [errorMessage, setErrorMessage] = useState(null);
 
@@ -27,7 +31,7 @@ function Login() {
     e.preventDefault();
     var foundItems = null;
     try {
-      const userData = await axios.post("https://restaurant-backend-yubq.onrender.com/userdata");
+      const userData = await axios.post("https://mern-backend-z9pr.onrender.com/userdata");
       //console.log(userData);
       const userJsonData =  userData.data;
       console.log(userJsonData);
@@ -39,8 +43,8 @@ function Login() {
 
       if (foundItems != null) {
         if (foundItems.password === md5(data.password[0])) {
-          Cookies.set('userid', foundItems.email);
-          navigate("/")
+          Cookies.set('userid', foundItems._id,{expires: 10,path:'/'});
+          navigateToDashboard();
         }
         else {
           setErrorMessage("Password incorrect");
@@ -85,7 +89,7 @@ function Login() {
           </div>
         )}
         <div className="btn-container">
-          <input className="submit-btn" type="submit"></input>
+          <input className="submit-btn" type="submit" ></input>
         </div>
       </form>
     </div>
@@ -93,4 +97,3 @@ function Login() {
 }
 
 export default Login;
-export {isLoggedIn};

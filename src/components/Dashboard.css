@@ -1,0 +1,8 @@
+.caros {
+    margin: 3%;
+    margin-top: 0;
+}
+
+.carousel-item {
+    max-height: 550px;
+}

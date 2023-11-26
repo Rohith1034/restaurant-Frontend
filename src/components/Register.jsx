@@ -1,13 +1,13 @@
 import "./Register.css"
 import { useState, useEffect } from "react";
-
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
+
 
 
 function Register() {
 
-    //const navigate = useNavigate();
-    
+    const navigate = useNavigate();
 
     const [data, setData] = useState({
         name: "",
@@ -15,6 +15,12 @@ function Register() {
         phone: "",
         password: "",
         confirmPassword: "",
+        street: "",
+        city: "",
+        state: "",
+        zipcode: "",
+        country: "",
+
     });
 
     const [errorMessage, setErrorMessage] = useState(null);
@@ -27,8 +33,15 @@ function Register() {
         e.preventDefault();
         try {
             if (data.password === data.confirmPassword) {
-                const response = axios.post("http://localhost:5000/data", data);
-               
+                //https://restaurant-backend-yubq.onrender.com/data
+                const response = await axios.post("https://mern-backend-z9pr.onrender.com/data", data);
+                if (response.data.result === "Not Registered") {
+                    setErrorMessage("Email alredy exist");
+                }
+                else {
+                    navigate("/login");
+                }
+
             } else {
                 setErrorMessage("Passwords did not match!");
             }
@@ -38,9 +51,6 @@ function Register() {
     };
 
     return <div className="container">
-        <div className="img-container">
-            <img className="img" src="https://images.unsplash.com/photo-1493770348161-369560ae357d?auto=format&fit=crop&q=80&w=2070&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt=""></img>
-        </div>
         <div className="form-container">
             <h1 className="main-heading">Register</h1>
             <form onSubmit={handleSubmit}>
@@ -63,6 +73,26 @@ function Register() {
                 <div className="form-item">
                     <span className="item-heading">confirm Password:</span>
                     <input className="input-box" type="password" placeholder="Enter confirm password" name="confirmPassword" onChange={handleChange} required />
+                </div>
+                <div className="form-item">
+                    <span className="item-heading">Street:</span>
+                    <input className="input-box" type="text" placeholder="Enter street" name="street" onChange={handleChange} required />
+                </div>
+                <div className="form-item">
+                    <span className="item-heading">City:</span>
+                    <input className="input-box" type="text" placeholder="Enter city" name="city" onChange={handleChange} required />
+                </div>
+                <div className="form-item">
+                    <span className="item-heading">State:</span>
+                    <input className="input-box" type="text" placeholder="Enter state" name="state" onChange={handleChange} required />
+                </div>
+                <div className="form-item">
+                    <span className="item-heading">Zipcode:</span>
+                    <input className="input-box" type="text" placeholder="Enter zipcode" name="zipcode" onChange={handleChange} required />
+                </div>
+                <div className="form-item">
+                    <span className="item-heading">Country:</span>
+                    <input className="input-box" type="text" placeholder="Enter country" name="country" onChange={handleChange} required />
                 </div>
                 <div className="checkbox-item">
                     <input type="checkbox" required></input>
