@@ -32,7 +32,7 @@ function Login() {
     var foundItems = null;
     try {
       const userData = await axios.post("https://restaurant-backend-yubq.onrender.com/userdata");
-      //console.log(userData);
+      console.log(userData);
       const userJsonData =  userData.data;
       console.log(userJsonData);
       for (let i = 0; i < userJsonData.length; i++) {
