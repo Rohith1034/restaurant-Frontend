@@ -12,7 +12,6 @@ function Dashboard() {
 
     const isLogged = async () => {
         const userid = Cookies.get("userId");
-        console.log(userid);
         if (userid === undefined) {
             navigate("/login")
         }
