@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import md5 from "md5";
 import Cookies from "js-cookie";
 
+
 var isLoggedIn = false;
 
 function Login() {
@@ -29,33 +30,19 @@ function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    var foundItems = null;
     try {
-      const userData = await axios.post("https://restaurant-backend-yubq.onrender.com/userdata");
-      console.log(userData);
-      const userJsonData =  userData.data;
-      console.log(userJsonData);
-      for (let i = 0; i < userJsonData.length; i++) {
-        if (userJsonData[i].email === data.username[0]) {
-          foundItems = userJsonData[i];
-        }
-      }
-
-      if (foundItems != null) {
-        if (foundItems.password === md5(data.password[0])) {
-          Cookies.set('userid', foundItems._id,{expires: 10,path:'/'});
-          navigateToDashboard();
-        }
-        else {
-          setErrorMessage("Password incorrect");
-        }
+      const response = await axios.post("https://restaurant-backend-yubq.onrender.com/userdata",data);
+      console.log(response)
+      if (response.data.loginStatus === "success") {
+        Cookies.set("userId",response.data.userid);
+        navigate("/dashboard");
       }
       else {
-        setErrorMessage("User not found");
+        setErrorMessage(response.data.error);
       }
-
-    } catch (error) {
-      console.error("Fetch error:", error);
+    }
+    catch (error) {
+      console.log(error);
     }
   };
 

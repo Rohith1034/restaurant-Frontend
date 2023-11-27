@@ -11,7 +11,7 @@ function Dashboard() {
     const navigate = useNavigate();
 
     const isLogged = async () => {
-        const userid = Cookies.get("userid");
+        const userid = Cookies.get("userId");
         console.log(userid);
         if (userid === undefined) {
             navigate("/login")
@@ -19,7 +19,7 @@ function Dashboard() {
     }
 
     const handleLogout = () => {
-        Cookies.remove('userid')
+        Cookies.remove('userId')
         navigate('/Login')
       }
 
