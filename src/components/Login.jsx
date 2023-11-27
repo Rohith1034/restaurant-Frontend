@@ -32,7 +32,6 @@ function Login() {
     e.preventDefault();
     try {
       const response = await axios.post("https://restaurant-backend-yubq.onrender.com/userdata",data);
-      console.log(response)
       if (response.data.loginStatus === "success") {
         Cookies.set("userId",response.data.userid,{expires:20});
         navigate("/dashboard");
