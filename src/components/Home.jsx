@@ -4,7 +4,7 @@ import CardDisplay from "./CardDisplay";
 import About from "./About";
 import Mode from "./Mode";
 import Contact from "./Contact";
-import "./Home.css"
+import "./CSS/Home.css"
 
 function Home() {
     return <div className="home">

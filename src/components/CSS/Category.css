@@ -1,0 +1,10 @@
+.category-container {
+    margin-top: 1%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.category-heading {
+    color: white;
+    margin-left: 3%;
+}

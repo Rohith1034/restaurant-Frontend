@@ -1,0 +1,24 @@
+.category-card {
+    margin: 0% 1%;
+    border-radius: 50%;
+}
+
+.category-img-container {
+    margin-top: 1%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.category-img {
+    width: 185px;
+    height: 185px;
+    margin-top: 2%;
+}
+
+.category-card-heading {
+    margin-top: 0px;
+    display: flex;
+    justify-content: center;
+    color: white;
+}

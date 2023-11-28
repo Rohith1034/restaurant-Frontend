@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import Cookies from "js-cookie";
 
 function HeaderContent() {
 
@@ -9,9 +10,7 @@ function HeaderContent() {
         navigate("/dashboard");
     }
 
-    useEffect(() => {
-        handleRedirect();
-      }, []);
+    const userId = Cookies.get("userId");
 
     return <div className="header-content">
         <h1 className="header-heading">Elevate Your Dining Experience at our Restaurant</h1>

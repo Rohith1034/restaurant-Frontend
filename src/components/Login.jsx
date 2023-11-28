@@ -1,4 +1,4 @@
-import "./Login.css"
+import "./CSS/Login.css"
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -6,16 +6,17 @@ import md5 from "md5";
 import Cookies from "js-cookie";
 
 
-var isLoggedIn = false;
-
 function Login() {
 
   const navigate = useNavigate();
+  const [status, setStatus] = useState(false);
+  const [userId,setUserId] = useState("");
 
   const [data, setData] = useState({
     username: '',
     password: ''
   });
+
 
   const navigateToDashboard = () => {
     navigate("/dashboard");
@@ -31,10 +32,12 @@ function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("https://restaurant-backend-yubq.onrender.com/userdata",data);
+      const response = await axios.post("https://restaurant-backend-yubq.onrender.com/userdata", data);
       if (response.data.loginStatus === "success") {
-        Cookies.set("userId",response.data.userid,{expires:20});
+        console.log(response.data.loginStatus);
+        Cookies.set("userId", response.data.userid, { expires: 20 });
         navigate("/dashboard");
+        setStatus(true);
       }
       else {
         setErrorMessage(response.data.error);

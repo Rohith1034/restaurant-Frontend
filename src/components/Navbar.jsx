@@ -1,31 +1,34 @@
-import { Link } from 'react-router-dom';
-import Cookies from 'js-cookie';
-import { useEffect } from "react";
-import md5 from 'md5';
+import React, { useEffect } from "react";
+import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
 
 function Navbar() {
+  const navigate = useNavigate();
+  const userId = Cookies.get("userId");
 
-    const navigate = useNavigate();
+  const removeCookie = () => {
+    Cookies.remove("userId");
+    navigate("/");
+  };
 
-    const removeCookie = () => {
-        Cookies.remove("userid");
-        navigate("/");
+  const isLoggedIn = () => {
+    console.log(Cookies.get("userId"));
+    if (Cookies.get("userId") === undefined) {
+      return <a className="nav-link" href="/login">Login</a>;
+    } else {
+      return (
+        <a className="nav-link" href=" " onClick={() => removeCookie()}>
+          Logout
+        </a>
+      );
     }
+  };
 
-    const isLoggedIn = () => {
-        if (Cookies.get("userid") === undefined) {
-            return <a className='nav-link' href='/login'>Login</a>;
-        }
-        else {
-            return <button className="nav-link" onClick= {removeCookie()}>Logout</button>;
-        }
+  useEffect(() => {
+    if (userId !== undefined) {
+      navigate("/dashboard");
     }
-
-    useEffect(() => {
-        isLoggedIn();
-    }, []);
-    
+  }, [navigate, userId]);
 
     return <nav className="navbar navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid">
