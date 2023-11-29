@@ -9,7 +9,7 @@ import CategoryCard from "./CategoryCard";
 
 function Category() {
     return <div>
-        <h1 className="category-heading">Inspiration for your first order</h1>
+        <h1 className="category-heading">Inspiration for your order</h1>
         <div className="category-container">
             <CategoryCard img={img1} heading = "Paratha"/>
             <CategoryCard img={img2} heading = "Pizza"/>

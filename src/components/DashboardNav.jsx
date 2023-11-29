@@ -1,4 +1,13 @@
+import Cookies from "js-cookie";
+import { useNavigate } from "react-router-dom";
 function DashboardNav() {
+
+    const navigate = useNavigate();
+
+    const handleLogout = () => {
+        Cookies.remove("userId");
+    }
+
     return <section id="dashboard-nav">
        <nav className="navbar navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid">
@@ -21,7 +30,7 @@ function DashboardNav() {
                         <a className="nav-link" style={{fontSize:"22px"}} href="/profile">Profile</a>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" style={{fontSize:"22px"}} href=" ">Logout</a>
+                        <a className="nav-link" style={{fontSize:"22px"}} href=" " onClick={handleLogout}>Logout</a>
                     </li>
                 </ul>
             </div>
