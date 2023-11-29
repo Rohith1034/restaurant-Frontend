@@ -5,6 +5,7 @@ import "./CSS/Dashboard.css";
 import DashboardNav from "./DashboardNav";
 import { RiArrowRightUpLine } from "react-icons/ri";
 import headerImg from "../resources/header-img.png";
+import Category from "./Category";
 
 function Dashboard() {
   const navigate = useNavigate();
@@ -36,7 +37,7 @@ function Dashboard() {
             <div className="header-btn-container">
               <button className="order-btn">Order Now</button>
               <a className="see-menu" href=" ">
-                See Menu{" "}
+                See Menu
               </a>
               <RiArrowRightUpLine style={{ color: "#caa55e" }} />
             </div>
@@ -45,6 +46,9 @@ function Dashboard() {
             <img className="header-img" src={headerImg} alt=""></img>
           </div>
         </div>
+      </section>
+      <section id="categories">
+        <Category />
       </section>
     </div>
   );

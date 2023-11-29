@@ -11,12 +11,12 @@ function Category() {
     return <div>
         <h1 className="category-heading">Inspiration for your first order</h1>
         <div className="category-container">
-            <CategoryCard img={img1} heading="paratha" />
-            <CategoryCard img={img2}/>
-            <CategoryCard img={img3} />
-            <CategoryCard img={img4}  />
-            <CategoryCard img={img5} />
-            <CategoryCard img= {img7} />
+            <CategoryCard img={img1} heading = "Paratha"/>
+            <CategoryCard img={img2} heading = "Pizza"/>
+            <CategoryCard img={img3} heading ="South Indian"/>
+            <CategoryCard img={img4} heading = "North Indian" />
+            <CategoryCard img={img5} heading = "chinese"/>
+            <CategoryCard img={img7} heading = "Icecreamss"/>
         </div>
     </div>
 }

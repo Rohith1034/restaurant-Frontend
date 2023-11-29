@@ -1,6 +1,12 @@
 .category-card {
-    margin: 0% 1%;
+    margin: 0% 2%;
     border-radius: 50%;
+}
+
+@media (max-width:990px) {
+    .category-card {
+        margin: 0% 9% !important;
+    }
 }
 
 .category-img-container {
@@ -17,7 +23,7 @@
 }
 
 .category-card-heading {
-    margin-top: 0px;
+    margin-top: -40px;
     display: flex;
     justify-content: center;
     color: white;

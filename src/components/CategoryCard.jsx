@@ -5,7 +5,7 @@ function CategoryCard(props) {
         <div className="category-img-container">
             <img className="category-img" src={props.img} alt=""></img>
         </div>
-        <h5 className="category-card-heading">{props.heading}</h5>
+        <p className="category-card-heading">{props.heading}</p>
     </div>
 }
 

@@ -15,10 +15,10 @@ function DashboardNav() {
                         <a className="nav-link" style={{fontSize:"22px"}} href="/">Menu</a>
                     </li>
                     <li className="nav-item" style={{marginRight:"50px"}}>
-                        <a className="nav-link" style={{fontSize:"22px"}} href=" ">Deals</a>
+                        <a className="nav-link" style={{fontSize:"22px"}} href="#contact">Contact us</a>
                     </li>
                     <li className="nav-item" style={{marginRight:"50px"}}>
-                        <a className="nav-link" style={{fontSize:"22px"}} href="#contact">Contact us</a>
+                        <a className="nav-link" style={{fontSize:"22px"}} href="/profile">Profile</a>
                     </li>
                     <li className="nav-item">
                         <a className="nav-link" style={{fontSize:"22px"}} href=" ">Logout</a>

@@ -2,7 +2,7 @@ import "./CSS/Register.css"
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-
+import Cookies from "js-cookie";
 
 
 function Register() {
@@ -28,6 +28,13 @@ function Register() {
     const handleChange = (e) => {
         setData({ ...data, [e.target.name]: e.target.value });
     };
+
+    const userId = Cookies.get("userId");
+    useEffect(() => {
+        if (userId !== undefined) {
+            navigate("/dashboard");
+        }
+    }, [navigate]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();

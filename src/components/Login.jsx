@@ -10,13 +10,18 @@ function Login() {
 
   const navigate = useNavigate();
   const [status, setStatus] = useState(false);
-  const [userId,setUserId] = useState("");
 
   const [data, setData] = useState({
     username: '',
     password: ''
   });
 
+  const userId = Cookies.get("userId");
+  useEffect(() => {
+    if (userId !== undefined) {
+      navigate("/dashboard");
+    }
+  }, [navigate]);
 
   const navigateToDashboard = () => {
     navigate("/dashboard");
