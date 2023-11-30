@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import "./CSS/FoodCard.css";
+import Skeleton from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
 
 function FoodCard(props) {
     const { _id, name, description, price, comments, category, ratings, image } = props.foodData;
@@ -27,7 +29,7 @@ function FoodCard(props) {
 
     return (
         <div>
-            <Link to={`/food/${_id}`}>
+            <Link to={`/fooditems/${_id}`}>
                 <div className="food-card-container">
                     <div className="food-card-image-container">
                         <img
@@ -38,14 +40,14 @@ function FoodCard(props) {
                     </div>
                     <div className="food-card-details-container">
                         <div className="header-and-rating">
-                            <h4 className="food-card-heading">{newHeading}</h4>
+                            <h4 className="food-card-heading">{newHeading }</h4>
                             <div className="rating">
                                 <i className="fa-solid fa-star" style={{ fontSize: "10px" }}></i>
                             </div>
-                            <span className="rating-number">{(sum / ratings.length).toFixed(1)}</span>
+                            <span className="rating-number">{(sum / ratings.length).toFixed(1) }</span>
                         </div>
                         <span className="food-card-description">
-                            {newDescription}
+                            {newDescription }
                         </span>
                     </div>
                 </div>

@@ -305,7 +305,7 @@ a:hover {
 }
 
 .menu {
-    margin-left: 10%;
+    margin-left: 12%;
     display: flex;
     flex-direction: column;
 }
@@ -332,14 +332,14 @@ a:hover {
 }
 
 .icon-container {
-    margin-left: 10%;
+    margin-left: 12%;
     font-size: 30px;
     display: flex;
     flex-direction: row;
 }
 
 .contact-icons {
-    margin-left: 20% !important;
+    margin-left: 15% !important;
 }
 
 @keyframes moveUp {

@@ -94,7 +94,7 @@
 }
 
 @media (max-width:990px) {
-    .popular-items-heading {
+    .popular-items {
         display: flex;
         justify-content: center;
     }
@@ -124,4 +124,10 @@
 
 .see-more:hover {
     color: #caa55e;
+}
+
+@media (max-width: 1250px) {
+    .see-more {
+        display: none;
+    }
 }

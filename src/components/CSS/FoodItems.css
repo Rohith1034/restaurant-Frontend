@@ -1,0 +1,115 @@
+.food-items-container {
+    display: flex;
+    justify-content: center;
+    margin-left: 3%;
+    margin-top: 4%;
+}
+
+@media (max-width:1450px) {
+    .food-items-container {
+        flex-direction: column;
+    }
+}
+
+.food-items-img-container {
+    display: flex;
+    justify-content: center;
+    flex: 0;
+}
+
+.food-items-img {
+    max-width: 800px;
+    max-height: 550px;
+    border-radius: 7px;
+}
+
+.food-items-details-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    flex: 1;
+    margin: 3%;
+}
+
+.food-items-heading {
+    color: white;
+}
+
+.food-items-description {
+    color: white;
+    display: flex;
+}
+
+.food-items-btn-container {
+    display: flex;
+}
+
+.food-items-addcart {
+    padding: 12px;
+    color: white;
+    border-radius: 9px;
+    background-color: gray;
+    width: 350px;
+    margin: 4%;
+}
+
+.food-items-buynow {
+    padding: 12px;
+    color: white;
+    border-radius: 9px;
+    background-color: red;
+    width: 350px;
+    margin: 4%;
+}
+
+#related-items {
+    display: flex;
+    margin: 3%;
+    flex-direction: column;
+}
+
+.related-items-details-container {
+    display: flex;
+}
+
+@media (max-width:990px) {
+    .related-items-details-container {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+
+.related-items-heading {
+    margin: 4% 7%;
+    color: white;
+}
+
+.related-items-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+#about-restaurant {
+    display: flex;
+    flex-direction: column;
+    margin: 3% 7%;
+}
+
+.about-restaurant-heading {
+    color: white;
+}
+
+.about-restaurant-description {
+    color: white;
+}
+
+
+@media (max-width:1330px) {
+    .custom-skeleton {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+}

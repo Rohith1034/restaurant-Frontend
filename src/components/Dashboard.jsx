@@ -8,18 +8,25 @@ import headerImg from "../resources/header-img.png";
 import Category from "./Category";
 import FoodCard from "./FoodCard";
 import axios from "axios";
+import CardSkeleton from "./CardSkeleton";
 
 function Dashboard() {
 
   const navigate = useNavigate();
   const [menuData, setMenuData] = useState([])
+  const [isLoading, setIsLoading] = useState(true);
 
   const getData = async () => {
     const response = await axios.post("https://restaurant-backend-yubq.onrender.com/menudata");
     setMenuData(response.data);
+    setIsLoading(false);
   }
 
   getData();
+
+  const navigateToFoodItems = () => {
+    navigate("/fooditems")
+  }
 
   useEffect(() => {
     const isLogged = async () => {
@@ -63,16 +70,24 @@ function Dashboard() {
       </section>
       <div className="popular-items">
         <h1 className="popular-items-heading">Popular Items</h1>
-        <a className="see-more" href="/food">See more</a>
-        <RiArrowRightUpLine style={{ color: "#caa55e" }} />
+        <a className="see-more" href="/fooditems">See more</a>
+        <RiArrowRightUpLine style={{ color: "#caa55e" }} onClick={navigateToFoodItems}/>
       </div>
       <section id="popular-items">
-        {menuData.slice(0, 4).map(foodData => (
-          <div className="space-in-btw" key={foodData._id}>
-            <FoodCard foodData={foodData} />
-          </div>
-        ))}
-
+        {isLoading ? (
+          Array.from({ length: 4 }).map((_, index) => (
+            <div className="space-in-btw">
+            <CardSkeleton key={index} />
+            </div>
+          ))
+        ) : (
+          // Render actual data
+          menuData.slice(0, 4).map((foodData) => (
+            <div className="space-in-btw" key={foodData._id}>
+              <FoodCard foodData={foodData} />
+            </div>
+          ))
+        )}
       </section>
     </div>
   );

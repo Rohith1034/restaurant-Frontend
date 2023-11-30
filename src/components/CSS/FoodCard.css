@@ -38,6 +38,7 @@
 }
 
 .rating-number {
+    color: white;
     position: absolute;
     margin-left: 238px;
 }
