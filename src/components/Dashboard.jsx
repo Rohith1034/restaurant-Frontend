@@ -9,17 +9,29 @@ import Category from "./Category";
 import FoodCard from "./FoodCard";
 import axios from "axios";
 import CardSkeleton from "./CardSkeleton";
+import RestaurantCard from "./RestaurantCard";
+import Carousel from "./Carousel";
+import Contact from "./Contact";
 
 function Dashboard() {
 
   const navigate = useNavigate();
   const [menuData, setMenuData] = useState([])
+  const [restaurantData, setRestaurantData] = useState([]);
+  const [restaurantLoading, setRestaurantLoading] = useState(true);
+  const [recentlyViewd,setRecentlyViewed] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   const getData = async () => {
     const response = await axios.post("https://restaurant-backend-yubq.onrender.com/menudata");
     setMenuData(response.data);
     setIsLoading(false);
+  }
+
+  const getRestaurantData = async () => {
+    const response = await axios.post("http://localhost:5000/restaurantdata");
+    setRestaurantData(response.data);
+    setRestaurantLoading(false);
   }
 
   const navigateToFoodItems = () => {
@@ -34,8 +46,11 @@ function Dashboard() {
       }
     };
     getData();
+    getRestaurantData();
     isLogged();
   }, [navigate]);
+
+  console.log(restaurantData);
 
   return (
     <div>
@@ -72,7 +87,7 @@ function Dashboard() {
         <RiArrowRightUpLine style={{ color: "#caa55e" }} onClick={navigateToFoodItems} />
       </div>
       <section id="popular-items">
-        
+
         {isLoading ? (
           Array.from({ length: 4 }).map((_, index) => (
             <div className="space-in-btw">
@@ -84,10 +99,38 @@ function Dashboard() {
             <div className="space-in-btw" key={foodData._id}>
               <FoodCard foodData={foodData} />
             </div>
-            ))
+          ))
 
         )}
       </section>
+
+      <div className="popular-items">
+        <h1 className="popular-items-heading">Liked Restaurant</h1>
+        <a className="see-more" href="/fooditems">See more</a>
+        <RiArrowRightUpLine style={{ color: "#caa55e" }} onClick={navigateToFoodItems} />
+      </div>
+      <section id="popular-items">
+
+        {restaurantLoading ? (
+          Array.from({ length: 4 }).map((_, index) => (
+            <div className="space-in-btw">
+              <CardSkeleton key={index} />
+            </div>
+          ))
+        ) : (
+          restaurantData.slice(0, 4).map((foodData) => (
+            <div className="space-in-btw" key={foodData.id}>
+              <RestaurantCard foodData={foodData} />
+            </div>
+
+          ))
+        )}
+      </section>
+
+      <Carousel />      
+      
+      <Contact />
+
     </div>
   );
 }

@@ -15,6 +15,7 @@ function RestaurantRegister() {
         phone: "",
         password: "",
         confirmPassword: "",
+        image: "",
         street: "",
         city: "",
         state: "",
@@ -23,16 +24,31 @@ function RestaurantRegister() {
 
     });
 
+    function convertToBAse(e) {
+        var reader = new FileReader();
+        reader.readAsDataURL(e.target.files[0]);
+        reader.onload = () => {
+            setData({...data,images:reader.result});
+        };
+        reader.onerror = error => {
+            console.log("Error: ", error)
+        }
+    }
+
     const [errorMessage, setErrorMessage] = useState(null);
 
     const handleChange = (e) => {
-        setData({ ...data, [e.target.name]: e.target.value });
+        if (e.target.name === "images") {
+            convertToBAse(e);
+        } else {
+            setData({ ...data, [e.target.name]: e.target.value });
+        }
     };
 
-    const userId = Cookies.get("userId");
+    const restaurantId = Cookies.get("restaurantId");
     useEffect(() => {
-        if (userId !== undefined) {
-            navigate("/dashboard");
+        if (restaurantId !== undefined) {
+            navigate("restaurant/dashboard");
         }
     }, [navigate]);
 
@@ -46,7 +62,7 @@ function RestaurantRegister() {
                     setErrorMessage("Email alredy exist");
                 }
                 else {
-                    navigate("restaurant/login");
+                    navigate("/restaurant/login");
                 }
 
             } else {
@@ -80,6 +96,10 @@ function RestaurantRegister() {
                 <div className="form-item">
                     <span className="item-heading">confirm Password:</span>
                     <input className="input-box" type="password" placeholder="Enter confirm password" name="confirmPassword" onChange={handleChange} required />
+                </div>
+                <div className="form-item">
+                    <span className="item-heading">Images:</span>
+                    <input className="input-box-drop" type="file" name="images" onChange={handleChange} accept="image/*" required />
                 </div>
                 <div className="form-item">
                     <span className="item-heading">Street:</span>

@@ -1,3 +1,46 @@
+body {
+    padding: 0%;
+    margin: 0%;
+}
+
+#dashboard-nav {
+    margin: 2%;
+}
+
+.dropdown-toggle {
+    background-color: black;
+    color: white;
+    border: 0px solid black;
+    font-size: 22px;
+    width: 180px;
+}
+
+.fa-heart {
+    font-size: 22px;
+}
+
+@media (max-width:990px) {
+    .dropdown-toggle {
+        display: inline-block;
+        width: 30px;
+    }
+
+    .fa-user {
+        margin-left: 40px;
+        margin-top: 2px;
+    }
+}
+
+.dropdown-toggle:hover {
+    background-color: black;
+    color: white;
+    transform: translateY(0px);
+}
+
+.dropdown-toggle:focus {
+    outline: none !important;
+}
+
 .dashboard-header-container {
     display: flex;
 }
@@ -120,7 +163,7 @@
 }
 
 .see-more{
-    margin-left: 70%;
+    margin-left: 60%;
     color: #caa55e;
     text-decoration: underline;
 }
@@ -132,5 +175,18 @@
 @media (max-width: 1250px) {
     .see-more {
         display: none;
+    }
+}
+
+#carousel {
+    display: flex;
+    justify-content: center;
+    margin: 6%;
+}
+
+@media (max-width:990px) {
+    #carousel {
+        display: flex;
+        justify-content: center;
     }
 }
