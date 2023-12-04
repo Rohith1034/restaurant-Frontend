@@ -1,17 +1,20 @@
 import React, { useEffect, useState } from "react";
-import img1 from "../resources/biriyani.jpeg";
-import "./CSS/FoodItems.css";
+import "../CSS/FoodItems.css";
 import { useNavigate, useParams } from "react-router-dom";
-import DashboardNav from "./DashboardNav";
+import DashboardNav from "../DashboardNav";
 import axios from "axios";
-import CardSkeleton from "./CardSkeleton";
-import FoodCard from "./FoodCard";
+import CardSkeleton from "../CardSkeleton";
+import FoodCard from "../FoodCard";
 import { RiArrowRightUpLine } from "react-icons/ri";
-import Contact from "./Contact";
-import ItemSkeleton from "./ItemSkeleton";
+import Contact from "../Contact";
+import ItemSkeleton from "../ItemSkeleton";
 import Skeleton from "react-loading-skeleton";
+import { MdEdit } from "react-icons/md";
+import { MdDelete } from "react-icons/md";
+import Cookies from "js-cookie";
+import RestaurantNav from "./RestaurantNav";
 
-function FoodItems(props) {
+function RestaurantFoodItems(props) {
 
     const navigate = useNavigate();
     const [menuData, setMenuData] = useState([])
@@ -20,6 +23,10 @@ function FoodItems(props) {
     const [itemLoading, setItemLoading] = useState(true);
     const [ratings,setRatings] = useState();
     const { id } = useParams();
+    const restaurantId = Cookies.get("restaurantId");
+    const Ids = {
+        id,restaurantId
+    }
 
     const getData = async () => {
         const response = await axios.post("https://restaurant-backend-yubq.onrender.com/menudata");
@@ -42,6 +49,22 @@ function FoodItems(props) {
         }
     }
 
+    const EditFoodItem = async() => {
+        navigate(`/restaurant/fooditems/edit/${id}`);
+    }
+
+    const handleDelete = async(e) => {
+        try {
+            const response = await axios.post("http://localhost:5000/restaurant/fooditem/delete",Ids);
+            if (response.data.status) {
+                navigate("/restaurant/dashboard");
+            }
+        }
+        catch (error) {
+            console.log(error)
+        }
+    }
+
     useEffect(() => {
         getData();
         getMenuData();
@@ -54,10 +77,9 @@ function FoodItems(props) {
         }
     }, []);
     
-    console.log(ratings)
 
     return <div>
-        <DashboardNav />
+        <RestaurantNav />
         <div className="food-items-container">
             {itemLoading ? (
                 <ItemSkeleton />
@@ -73,8 +95,8 @@ function FoodItems(props) {
                             <h4 className="food-items-price-heading"><span style={{color:"red"}}>-67%</span> Price:₹{itemData[0].price}</h4>
                         </div>
                         <div className="food-items-btn-container">
-                            <button className="food-items-addcart">Add to cart</button>
-                            <button className="food-items-buynow">Buy Now</button>
+                            <button className="food-items-addcart" onClick={EditFoodItem}>Edit<MdEdit style={{marginBottom:"5px",marginLeft:"10px",fontSize:"20px"}} /></button>
+                            <button className="food-items-buynow"  onClick={handleDelete}>Delete<MdDelete style={{marginBottom:"5px",marginLeft:"10px",fontSize:"20px"}}/></button>
                         </div>
                     </div>
                 </React.Fragment>
@@ -107,7 +129,6 @@ function FoodItems(props) {
             ):(
                 <p className="about-restaurant-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam consequat consectetur leo, sed tempus eros semper a. Vestibulum libero velit, imperdiet mollis lorem et, venenatis tincidunt leo. Integer vitae turpis efficitur, accumsan magna ut, imperdiet metus. Suspendisse potenti. Quisque nec faucibus purus, sed condimentum massa. Suspendisse nibh justo, condimentum at venenatis in, finibus sed erat. Pellentesque facilisis, nibh vel dapibus auctor, leo lectus aliquet massa, dictum consectetur nibh enim eget arcu. Proin porta a est ultrices dapibus. Integer sollicitudin lacinia nulla quis eleifend. Fusce vel nisi quam. Phasellus at molestie libero, a sollicitudin turpis. Nunc non nulla congue, rhoncus felis quis, hendrerit nunc. Integer iaculis ligula id leo pretium, varius tincidunt ligula egestas. Ut venenatis neque tortor, et ultricies lectus congue vel. Nunc in ex pharetra, auctor arcu id, fringilla ex. Sed erat mauris, consectetur eget hendrerit id, elementum vel nulla.Vivamus lobortis nunc ac metus mattis tristique. Sed sollicitudin purus nulla, quis tincidunt risus efficitur at. Fusce tristique purus non turpis posuere malesuada. Etiam lacinia finibus lorem, at vestibulum leo suscipit in. Nullam pulvinar, justo sed vestibulum ornare, urna ante iaculis purus, vitae efficitur sem tortor at augue.Sed vitae purus luctus, fermentum justo sit amet, efficitur urna. Nunc vehicula interdum purus, a laoreet eros facilisis non. Vestibulum ut dolor in purus varius convallis id vitae dolor.Mauris volutpat aliquam odio eu eleifend. Sed eros magna, venenatis sit amet laoreet et, finibus nec arcu. Sed leo risus, dapibus eu lectus eu, egestas viverra metus.</p>
             )
-
             }
             
         </section>
@@ -115,4 +136,4 @@ function FoodItems(props) {
     </div>
 }
 
-export default FoodItems;
+export default RestaurantFoodItems;

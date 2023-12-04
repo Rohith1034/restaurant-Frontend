@@ -22,8 +22,6 @@ function Dashboard() {
     setIsLoading(false);
   }
 
-  getData();
-
   const navigateToFoodItems = () => {
     navigate("/fooditems")
   }
@@ -71,22 +69,23 @@ function Dashboard() {
       <div className="popular-items">
         <h1 className="popular-items-heading">Popular Items</h1>
         <a className="see-more" href="/fooditems">See more</a>
-        <RiArrowRightUpLine style={{ color: "#caa55e" }} onClick={navigateToFoodItems}/>
+        <RiArrowRightUpLine style={{ color: "#caa55e" }} onClick={navigateToFoodItems} />
       </div>
       <section id="popular-items">
+        
         {isLoading ? (
           Array.from({ length: 4 }).map((_, index) => (
             <div className="space-in-btw">
-            <CardSkeleton key={index} />
+              <CardSkeleton key={index} />
             </div>
           ))
         ) : (
-          // Render actual data
           menuData.slice(0, 4).map((foodData) => (
             <div className="space-in-btw" key={foodData._id}>
               <FoodCard foodData={foodData} />
             </div>
-          ))
+            ))
+
         )}
       </section>
     </div>

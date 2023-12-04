@@ -108,11 +108,14 @@
 
 .space-in-btw {
     margin-left: 4%;
+    display: flex;
+    justify-content: center;
 }
 
 @media (max-width:990px) {
     #popular-items {
-        margin-left: 9%;
+        display: flex;
+        justify-content: center;
     }   
 }
 
