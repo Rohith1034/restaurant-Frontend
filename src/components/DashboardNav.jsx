@@ -21,7 +21,7 @@ function DashboardNav() {
                             <a className="nav-link" style={{ fontSize: "22px" }} aria-current="page" href="/">Home</a>
                         </li>
                         <li className="nav-item" style={{ marginRight: "50px" }}>
-                            <a className="nav-link" style={{ fontSize: "22px" }} href="/">Menu</a>
+                            <a className="nav-link" style={{ fontSize: "22px" }} href="#categories">Menu</a>
                         </li>
                         <li className="nav-item" style={{ marginRight: "50px" }}>
                             <a className="nav-link" style={{ fontSize: "22px" }} href="/restaurant/register">Add Restaturant</a>
@@ -32,13 +32,14 @@ function DashboardNav() {
 
                     </ul>
                     <ul className="navbar-nav mb-2 mb-lg-0 ms-auto" style={{ display: 'flex', alignItems: 'center' ,flexDirection:"row"}}>
-                        <a href="/wishlist"><i class="fa-solid fa-heart" style={{  marginTop: "9px" }}></i></a>
+                        <a href="user/wishlist"><i class="fa-solid fa-heart" style={{  marginTop: "9px" }}></i></a>
                         <div className="dropdown">
                             <a className="btn btn-sm dropdown-toggle" href=" " role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="fa-solid fa-user"></i>
                             </a>
                             <ul className="dropdown-menu">
-                                <li><a className="dropdown-item" href="/profile">profile</a></li>
+                                <li><a className="dropdown-item" href="user/profile">Profile</a></li>
+                                <li><a className="dropdown-item" href="/">Orders</a></li>
                                 <li><a className="dropdown-item" href="/editprofile">Edit profile</a></li>
                                 <li><a className="dropdown-item" href=" " onClick={handleLogout}>Logout</a></li>
                             </ul>

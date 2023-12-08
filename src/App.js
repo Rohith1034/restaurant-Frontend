@@ -14,6 +14,7 @@ import RestaurantLogin from './components/Restaurant/RestaurantLogin';
 import RestaurantAddItem from './components/Restaurant/RestarantAddItem';
 import RestaurantFoodItems from './components/Restaurant/RestaurantFoodItems';
 import RestaurantEditFoodItem from './components/Restaurant/RestaurantEditFoodItem';
+import Wishlist from './components/Wishlist';
 /*  */
 
 function App() {
@@ -23,10 +24,9 @@ function App() {
         <SkeletonTheme baseColor="#313131" highlightColor='#525252'>
           <Routes>
             <Route path='/' element={<Home />} />
-            <Route path='/profile' element={<Profile />} />
+            <Route path='user/profile' element={<Profile />} />
             <Route path='/login' element={<Login />} />
             <Route path='/register' element={<Register />} />
-            <Route path='/logout' element={<Logout />} />
             <Route path='/dashboard' element={<Dashboard />} />
             <Route path='/fooditems/:id' element={<FoodItems />} />
             <Route path='/restaurant/dashboard' element={<RestaurantDashboard />}/>
@@ -35,6 +35,7 @@ function App() {
             <Route path='/restaurant/additem' element={<RestaurantAddItem/>} />
             <Route path='/restaurant/fooditems/:id' element={<RestaurantFoodItems/>} />
             <Route path='/restaurant/fooditems/edit/:Id' element={<RestaurantEditFoodItem />} />
+            <Route path='/user/wishlist' element={<Wishlist  />} />
           </Routes>
         </SkeletonTheme>
       </div>

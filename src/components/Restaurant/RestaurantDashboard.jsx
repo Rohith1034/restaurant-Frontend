@@ -21,13 +21,13 @@ function RestaurantDashboard() {
     const restaurantid = Cookies.get("restaurantId");
 
     const getData = async () => {
-        const response = await axios.post(`http://localhost:5000/restaurantfooditems/${restaurantid}`);
+        const response = await axios.post(`https://restaurant-backend-yubq.onrender.com/restaurantfooditems/${restaurantid}`);
         setMenuData(response.data);
         setIsLoading(false);
     }
 
     const getRestaurantData = async () => {
-        const response = await axios.post(`http://localhost:5000/restaurant/details/${restaurantid}`);
+        const response = await axios.post(`https://restaurant-backend-yubq.onrender.com/restaurant/details/${restaurantid}`);
         setRestaurantData(response.data);
         setRestaurantLoading(false);
     }

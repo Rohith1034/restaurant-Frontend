@@ -48,7 +48,7 @@ function AddFoodItem() {
         e.preventDefault();
         try {
             console.log(foodItemData);
-            const response = await axios.post("http://localhost:5000/restaurant/newitem", foodItemData);
+            const response = await axios.post("https://restaurant-backend-yubq.onrender.com/restaurant/newitem", foodItemData);
             if (response.data.status) {
                 navigate("/restaurant/dashboard");
             }

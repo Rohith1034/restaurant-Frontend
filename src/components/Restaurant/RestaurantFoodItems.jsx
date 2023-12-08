@@ -55,7 +55,7 @@ function RestaurantFoodItems(props) {
 
     const handleDelete = async(e) => {
         try {
-            const response = await axios.post("http://localhost:5000/restaurant/fooditem/delete",Ids);
+            const response = await axios.post("https://restaurant-backend-yubq.onrender.com/restaurant/fooditem/delete",Ids);
             if (response.data.status) {
                 navigate("/restaurant/dashboard");
             }

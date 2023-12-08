@@ -57,7 +57,7 @@ function RestaurantRegister() {
         try {
             if (data.password === data.confirmPassword) {
                 //https://restaurant-backend-yubq.onrender.com/data
-                const response = await axios.post("http://localhost:5000/restaurant/register", data);
+                const response = await axios.post("https://restaurant-backend-yubq.onrender.com/restaurant/register", data);
                 if (response.data.result === "Not Registered") {
                     setErrorMessage("Email alredy exist");
                 }

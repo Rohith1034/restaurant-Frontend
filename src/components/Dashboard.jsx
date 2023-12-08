@@ -29,7 +29,7 @@ function Dashboard() {
   }
 
   const getRestaurantData = async () => {
-    const response = await axios.post("http://localhost:5000/restaurantdata");
+    const response = await axios.post("https://restaurant-backend-yubq.onrender.com/restaurantdata");
     setRestaurantData(response.data);
     setRestaurantLoading(false);
   }

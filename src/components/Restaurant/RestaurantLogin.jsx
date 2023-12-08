@@ -35,7 +35,7 @@ function RestaurantLogin() {
     const handleSubmit = async (e) => {
       e.preventDefault();
       try {
-        const response = await axios.post("http://localhost:5000/restaurant/login", data);
+        const response = await axios.post("https://restaurant-backend-yubq.onrender.com/restaurant/login", data);
         console.log(response);
         if (response.data.loginStatus === "success") {
           console.log(response.data.loginStatus);

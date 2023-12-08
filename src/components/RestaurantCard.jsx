@@ -43,7 +43,7 @@ function RestaurantCard(props) {
                     <div className="food-card-details-container">
                         <div className="header-and-rating">
                             <h4 className="food-card-heading">{newHeading }</h4>
-                            <div className="rating" style={{backgroundColor:"green"}}>
+                            <div className="rating" style={{backgroundColor:"#caa55e"}}>
                                 <i className="fa-solid fa-star" style={{ fontSize: "10px" }}></i>
                             </div>
                             <span className="rating-number">{(sum / ratings.length).toFixed(1) }</span>

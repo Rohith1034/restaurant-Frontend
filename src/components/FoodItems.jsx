@@ -10,6 +10,7 @@ import { RiArrowRightUpLine } from "react-icons/ri";
 import Contact from "./Contact";
 import ItemSkeleton from "./ItemSkeleton";
 import Skeleton from "react-loading-skeleton";
+import Cookies from "js-cookie";
 
 function FoodItems(props) {
 
@@ -19,7 +20,14 @@ function FoodItems(props) {
     const [itemData, setItemData] = useState([]);
     const [itemLoading, setItemLoading] = useState(true);
     const [ratings,setRatings] = useState();
+
+    const userId = Cookies.get("userId");
     const { id } = useParams();
+
+    const userData = {
+        userId,
+        id
+    };
 
     const getData = async () => {
         const response = await axios.post("https://restaurant-backend-yubq.onrender.com/menudata");
@@ -42,6 +50,18 @@ function FoodItems(props) {
         }
     }
 
+    const handleAddTOCart = async() => {
+        try {
+            const response = await axios.post("https://restaurant-backend-yubq.onrender.com/addItem",userData);
+            if (response.data.status) {
+                alert("Successfully added");
+            }
+        }
+        catch (error) {
+            console.log(error);
+        }
+    }
+
     useEffect(() => {
         getData();
         getMenuData();
@@ -54,7 +74,6 @@ function FoodItems(props) {
         }
     }, []);
     
-    console.log(ratings)
 
     return <div>
         <DashboardNav />
@@ -73,7 +92,7 @@ function FoodItems(props) {
                             <h4 className="food-items-price-heading"><span style={{color:"red"}}>-67%</span> Price:₹{itemData[0].price}</h4>
                         </div>
                         <div className="food-items-btn-container">
-                            <button className="food-items-addcart">Add to cart</button>
+                            <button className="food-items-addcart" onClick={handleAddTOCart} >Add to cart</button>
                             <button className="food-items-buynow">Buy Now</button>
                         </div>
                     </div>

@@ -35,7 +35,7 @@ function RestaurantEditFoodItem() {
                 _id:id.Id
             };
             console.log(totalFoodItem);
-            const response = await axios.post("http://localhost:5000/restaurant/edititem",totalFoodItem);
+            const response = await axios.post("https://restaurant-backend-yubq.onrender.com/restaurant/edititem",totalFoodItem);
             console.log(response);
             if (response.data.success) {
                 navigate("/restaurant/dashboard");
