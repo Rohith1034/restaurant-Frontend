@@ -12,19 +12,12 @@ function Wishlist() {
     const [wishlistData, setWishlistData] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const userId = Cookies.get("userId");
-<<<<<<< HEAD
-=======
     const currentDate = new Date();
->>>>>>> 54eeb39 (major commit)
 
     const getdata = async () => {
         try {
-            const response = await axios.post("http://localhost:5000/wishlistdata", { userId });
-<<<<<<< HEAD
-            setWishlistData(response.data)
-=======
+            const response = await axios.post("https://restaurant-backend-yubq.onrender.com/wishlistdata", { userId });
             setWishlistData(response.data.cart);
->>>>>>> 54eeb39 (major commit)
             setIsLoading(false);
         }
         catch (error) {
@@ -32,17 +25,6 @@ function Wishlist() {
         }
     }
 
-<<<<<<< HEAD
-    useEffect(() => {
-        getdata();
-    }, []);
-
-    console.log(wishlistData);
-
-    return <section id="wishlist">
-        <div className="orders-container">
-            <h1 className="orders-heading">Wishlist</h1>
-=======
     
 
     const placeOrder = async () => {
@@ -61,7 +43,7 @@ function Wishlist() {
                 data: ordersDataArray,
             };
     
-            const response = await axios.post("http://localhost:5000/placeorder", ordersData);
+            const response = await axios.post("https://restaurant-backend-yubq.onrender.com/placeorder", ordersData);
             if (response.status === 200) {
                 alert("Order placed successfully");
             }
@@ -87,7 +69,6 @@ function Wishlist() {
                 )
             }
             
->>>>>>> 54eeb39 (major commit)
             {isLoading ? (
                 <div>
                     <SkeletonWishlistCard />
@@ -100,21 +81,6 @@ function Wishlist() {
                     wishlistData.map((item) => (
                         <WishlistCard
                             key={item._id}
-<<<<<<< HEAD
-                            img={item.image}
-                            name={item.name}
-                            price={item.price}
-                        />
-                    ))
-                ) : (
-                    <h1 style={{ color: "white", display: "flex", justifyContent: "center", alignItems: "center" }}>Nothing in cart</h1>
-                ))
-            )}
-        </div>
-        <div className="price-details-container">
-            <h5 className="price-details">PRICE DETAILS</h5>
-        </div>
-=======
                             id = {item._id}
                             img={item.image}
                             name={item.name}
@@ -137,7 +103,6 @@ function Wishlist() {
         ) : (
             <h1></h1>
         )}
->>>>>>> 54eeb39 (major commit)
     </section>
 }
 

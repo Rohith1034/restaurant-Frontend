@@ -12,7 +12,7 @@ function Orders() {
     const getData = async () => {
         try {
             const userId = Cookies.get("userID");
-            const response = await axios.post("http://localhost:5000/orderdata", { userId });
+            const response = await axios.post("https://restaurant-backend-yubq.onrender.com/orderdata", { userId });
             if (response.status === 200) {
                 const orderItems = [];
                 console.log(response.data[0].items[0]);

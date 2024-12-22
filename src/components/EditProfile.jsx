@@ -23,7 +23,7 @@ const EditProfile = () => {
     useEffect(() => {
         const getData = async () => {
             try {
-                const response = await axios.post("http://localhost:5000/profiledata", { userId });
+                const response = await axios.post("https://restaurant-backend-yubq.onrender.com/profiledata", { userId });
                 setData(response.data); // Set profile data to state
             } catch (error) {
                 console.log(error);
@@ -58,7 +58,7 @@ const EditProfile = () => {
     const handleSaveChanges = async () => {
         try {
             console.log(data);
-            const res = await axios.post("http://localhost:5000/updateprofile", data);
+            const res = await axios.post("https://restaurant-backend-yubq.onrender.com/updateprofile", data);
             console.log(res.status);
         } catch (error) {
             console.log(error);
