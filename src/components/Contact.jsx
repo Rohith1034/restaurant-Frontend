@@ -1,9 +1,13 @@
 function Contact() {
     return <div className="contact-container" id="contact">
         <div className="resturant-details">
+<<<<<<< HEAD
             <h3 className="name">Sithara</h3>
             <p className="address">11-481 near manju lodge,</p>
             <span className="address">opp SBI bank dharmavram</span>
+=======
+            
+>>>>>>> 54eeb39 (major commit)
         </div>
 
         <div className="menu">

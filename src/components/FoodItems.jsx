@@ -52,10 +52,14 @@ function FoodItems(props) {
 
     const handleAddTOCart = async() => {
         try {
+<<<<<<< HEAD
             const response = await axios.post("https://restaurant-backend-yubq.onrender.com/addItem",userData);
             if (response.data.status) {
                 alert("Successfully added");
             }
+=======
+            const response = await axios.post("http://localhost:5000/addtocart",userData);
+>>>>>>> 54eeb39 (major commit)
         }
         catch (error) {
             console.log(error);

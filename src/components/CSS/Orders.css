@@ -1,0 +1,14 @@
+body {
+    margin: 0%;
+    padding: 0%;
+}
+
+#Orders {
+    display: flex;
+    flex-direction: column;
+}
+
+.orders-container {
+    margin: 7% 0% 0% 7%;
+    width: 900px;
+}

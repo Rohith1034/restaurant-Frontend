@@ -21,7 +21,11 @@ function Profile() {
     const getData = async () => {
         try {
             console.log(userId);
+<<<<<<< HEAD
             const response = await axios.post("https://restaurant-backend-yubq.onrender.com/user/profile", { userId });
+=======
+            const response = await axios.post("http://localhost:5000/profiledata", { userId });
+>>>>>>> 54eeb39 (major commit)
             setUserData(response.data);
             setIsLoading(false);
         }
@@ -31,7 +35,11 @@ function Profile() {
     }
 
     const navigateToEdit = (e) => {
+<<<<<<< HEAD
         navigate("/user/editprofile")
+=======
+        navigate("/editprofile")
+>>>>>>> 54eeb39 (major commit)
     }
 
     useEffect(() => {

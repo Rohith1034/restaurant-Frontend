@@ -1,0 +1,80 @@
+body {
+    background-color: black;
+}
+
+.profile-container {
+    display: flex;
+    flex-direction: row;
+    box-shadow: 3px 2px 20px white;
+    border-radius: 25px;
+    margin: 4%;
+    font-family: 'McLaren', cursive;
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
+    padding: 3%;
+    color: white;
+}
+
+.left-container {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    margin-top: 2%;
+    padding: 1%;
+}
+
+.right-container {
+    flex: 1;
+    margin: 2%;
+    margin-top: 4% !important;
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-img {
+    background-color: black;
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
+}
+
+.navigator {
+    margin-top: 5%;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 1px solid gray;
+    
+}
+
+.navigator-link {
+    display: block;
+    border-bottom: 1px solid gray;
+    padding: 15px 40px;
+    
+}
+
+.navigator-link > a {
+    font-size: 20px;
+}
+
+.custom-file-input {
+    color: black; /* Changes the text color */
+  }
+  
+  .custom-file-input::file-selector-button {
+    background-color: black; /* Changes the button background */
+    color: white; /* Changes the button text color */
+    border: none; /* Removes the border */
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .custom-file-input::file-selector-button:hover {
+    background-color: #333; /* Darker shade for hover effect */
+  }
+  
