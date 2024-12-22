@@ -15,11 +15,8 @@ import RestaurantAddItem from './components/Restaurant/RestarantAddItem';
 import RestaurantFoodItems from './components/Restaurant/RestaurantFoodItems';
 import RestaurantEditFoodItem from './components/Restaurant/RestaurantEditFoodItem';
 import Wishlist from './components/Wishlist';
-<<<<<<< HEAD
-=======
 import EditProfile from './components/EditProfile';
 import Orders from './components/Orders';
->>>>>>> 54eeb39 (major commit)
 /*  */
 
 function App() {
@@ -33,13 +30,12 @@ function App() {
             <Route path='/login' element={<Login />} />
             <Route path='/register' element={<Register />} />
             <Route path='/dashboard' element={<Dashboard />} />
-<<<<<<< HEAD
             <Route path='/fooditems/:id' element={<FoodItems />} />
-=======
+
             <Route path='/editprofile' element={<EditProfile/>} />
             <Route path='/fooditems/:id' element={<FoodItems />} />
             <Route path='/orders' element={<Orders />} />
->>>>>>> 54eeb39 (major commit)
+
             <Route path='/restaurant/dashboard' element={<RestaurantDashboard />}/>
             <Route path='/restaurant/register' element={<RestaurantRegister />} />
             <Route path='/restaurant/login' element={<RestaurantLogin />} />
