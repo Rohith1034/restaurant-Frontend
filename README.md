@@ -1,4 +1,4 @@
- Restaurant Food Delivery Website - Frontend
+Restaurant Food Delivery Website - Frontend
 
 This repository contains the **frontend code** for a restaurant food delivery application. The website is designed to provide a seamless experience for users to browse menus, customize their orders, and track their delivery. It’s fully responsive and optimized for a variety of devices.
 
@@ -39,6 +39,12 @@ This repository contains the **frontend code** for a restaurant food delivery ap
   - Optimized for mobile, tablet, and desktop users with a focus on accessibility.  
 
 ---
+![image](https://github.com/user-attachments/assets/26cb344d-8849-4d42-9e57-20289e028993)
+![image](https://github.com/user-attachments/assets/960646c8-627c-47d4-8aa8-f1a0bcd683c4)
+![image](https://github.com/user-attachments/assets/fa858434-ce5b-4d14-bcb1-4ca3b438d170)
+![image](https://github.com/user-attachments/assets/9e3fa72e-230c-4d9c-841b-2b170e80ab30)
+![image](https://github.com/user-attachments/assets/57b75a65-6f4d-46ea-b9da-2ae11303ef8a)
+
 
 ## Technology Stack
 
